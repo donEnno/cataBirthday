@@ -2,10 +2,6 @@ import tkinter as tk
 from main_window import MainWindow
 from utils import ClickCounter, center_window
 
-import os
-
-print(os.getcwd())
-
 def on_left_click(event):
     ClickCounter.increment_count()
     print(ClickCounter.count)
