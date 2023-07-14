@@ -20,7 +20,7 @@ def main():
     main_window = MainWindow(root,
                              large_txt="Happy Birthday Cata!",
                              sub_txt="Are you happy it's your special day?",
-                             button_txt="Yes!")
+                             button_txt="Yes!!")
     
     center_window(root)
 
