@@ -1,11 +1,10 @@
 import tkinter as tk
 from tkinter import messagebox
-from Cata.mainWindow2 import MainWindowTwo
-from Cata.promptWindow1 import PromptWindow
-from Cata.utils import ClickCounter, left_click_count
+from Cata.mainWindow6 import MainWindowSix
+from Cata.utils import ClickCounter, center_window, left_click_count
 
 
-class MainWindow:
+class MainWindowFive:
     def __init__(self, root, 
                  large_txt, 
                  sub_txt, 
@@ -13,6 +12,8 @@ class MainWindow:
         
         self.root = root
         self.root.geometry("400x150")
+
+        center_window(root)
 
         # Configure the message box to span three columns and center the text
         self.root.grid_columnconfigure(0, weight=1)
@@ -43,10 +44,10 @@ class MainWindow:
         
 
         # Open the prompt window
-        prompt_window = MainWindowTwo(root,
-                                      large_txt="I hope you are in the mood",
-                                      sub_txt="for a quick birthday quizz!",
-                                      button_txt="Hell yeah!")
+        prompt_window = MainWindowSix(root, 
+                                      "Text1",
+                                      "Text2",
+                                      "Ok.")
 
     def b2_clicked(self):
         messagebox.showinfo("Button 2", "Button 2 clicked!")

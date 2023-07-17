@@ -1,8 +1,7 @@
 import random
 import tkinter as tk
 from tkinter import messagebox
-
-from utils import center_window, left_click_count
+from Cata.utils import center_window, left_click_count
 
 class PromptWindow:
     def __init__(self, root):
@@ -14,7 +13,6 @@ class PromptWindow:
 
         self.question_label = tk.Label(self.root, text="Question:")
         self.question_label.grid(row=0, column=0, padx=10, pady=10, sticky="w")
-
 
         self.question_textbox = tk.Text(self.root, height=3, width=30)
         self.question_textbox.grid(row=0, column=1, padx=10, pady=10)
