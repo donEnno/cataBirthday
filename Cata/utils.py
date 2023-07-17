@@ -1,6 +1,9 @@
 import tkinter as tk
 
 class PopupWindow:
+    def __init__(self, text):
+        self.text = text
+
     def run(self):
         # Create a pop-up window to show when the click count reaches 25
         popup_root = tk.Toplevel()
@@ -9,7 +12,7 @@ class PopupWindow:
         
         center_window(popup_root, almost=True)
 
-        popup_label = tk.Label(popup_root, text="Click Count Reached 25!", font=("Arial", 16))
+        popup_label = tk.Label(popup_root, text=self.text, font=("Arial", 16))
         popup_label.pack(pady=50)
 
         popup_root.mainloop()
@@ -27,8 +30,14 @@ def left_click_count(event):
 
     if ClickCounter.count == 25:
         # Open a pop-up window when the click count reaches 25
-        popup_window = PopupWindow()
+        popup_window = PopupWindow(text="Awesome! You clicked as many times as you're aged!!")
         popup_window.run()
+
+    if ClickCounter.count == 3:
+        # Open a pop-up window when the click count reaches 25
+        popup_window = PopupWindow(text="You clicked thrice. Happy Birthday!")
+        popup_window.run()
+
 
 def center_window(root, almost=False):
     # Get the screen width and height

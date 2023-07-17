@@ -45,9 +45,9 @@ class MainWindowTwo:
 
         # Open the prompt window
         prompt_window = MainWindowThree(root, 
-                                        "Text1",
-                                        "Text2",
-                                        "Ok.")
+                                        "But first I need you to think fast.",
+                                        "The next windows will test your reaction skills.",
+                                        "Ok?")
 
     def b2_clicked(self):
         messagebox.showinfo("Button 2", "Button 2 clicked!")

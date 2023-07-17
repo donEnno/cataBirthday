@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-from Cata.mainWindow4 import MainWindowFour
+from Cata.reactionWindow import ReactionWindow
 from Cata.utils import ClickCounter, center_window, left_click_count
 
 
@@ -44,10 +44,7 @@ class MainWindowThree:
         
 
         # Open the prompt window
-        prompt_window = MainWindowFour(root, 
-                                       "Text1",
-                                       "Text2",
-                                       "Ok.")
+        prompt_window = ReactionWindow(root)
 
     def b2_clicked(self):
         messagebox.showinfo("Button 2", "Button 2 clicked!")
