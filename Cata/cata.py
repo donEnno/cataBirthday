@@ -8,7 +8,6 @@ def on_left_click(event):
 
 
 def main():
-    print("Check check")
 
     # Create the main Tkinter window
     root = tk.Tk()
