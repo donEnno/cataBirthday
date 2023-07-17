@@ -1,5 +1,5 @@
 import tkinter as tk
-from main_window import MainWindow
+from Cata.mainWindow import MainWindow
 from utils import ClickCounter, center_window
 
 def on_left_click(event):
@@ -8,6 +8,8 @@ def on_left_click(event):
 
 
 def main():
+    print("Check check")
+
     # Create the main Tkinter window
     root = tk.Tk()
     root.title("My Application")
