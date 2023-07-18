@@ -40,6 +40,7 @@ class ReactionWindow:
             self.root.after(100, self.update_countdown_label)
 
         else:
+            self.countdown_label.config(text=f"Time is up!")
             self.countdown_seconds = -1
             self.timer_completed()
 
@@ -49,18 +50,24 @@ class ReactionWindow:
             self.button.forget()
 
         if self.first_click:
+            self.button.config(text="Happy")
+            
             self.update_countdown_label()
             self.root.after(10000, self.timer_completed)
             self.first_click = False
 
         if not self.first_click and self.timer_active:
-            self.score += 1
+            if self.score % 2 == 0:
+                self.button.config(text="Happy")
+            else:
+                self.button.config(text="Birthday")
 
+            self.score += 1
+            
             x = random.randint(0, max(10, int(self.root.winfo_width()-self.button.winfo_width()*1.1)))
             y = random.randint(0, max(10, int(self.root.winfo_height()-self.button.winfo_height()*1.1)))
             self.button.place(x=x, y=y)
 
-            
 
     def timer_completed(self):
         if self.timer_active:
