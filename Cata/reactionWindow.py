@@ -1,3 +1,4 @@
+import random
 import tkinter as tk
 from Cata.mainWindow4 import MainWindowFour
 from Cata.utils import left_click_count
@@ -7,51 +8,78 @@ from Cata.utils import left_click_count
 class ReactionWindow:
     def __init__(self, root):
         self.root = root
-        self.root.title("Timer App")
+        self.first_click = True
+        self.timer_active = True
+
+        self.score = 0
         self.root.geometry("400x300")
 
-        self.label = tk.Label(self.root, text="Click the button to start the timer", font=("Arial", 16))
-        self.label.pack(pady=20)
+        self.countdown_label = tk.Label(self.root, text="")
+        self.countdown_label.pack(pady=10, padx=10)
 
-        self.button = tk.Button(self.root, text="Start Timer", command=self.start_timer)
+        self.button = tk.Button(self.root, text="Start Timer", command=self.start_countdown)
         self.button.pack(pady=10)
 
-        self.timer_count = 0
+        self.countdown_seconds = 10
         self.result_text = ""
 
         self.root.bind("<Button-1>", left_click_count)
 
+    def update_countdown_label(self):
+        
+        if self.countdown_seconds >= 4:
+            self.countdown_label.config(text=f"Countdown: %s seconds"%int(self.countdown_seconds))
+            self.countdown_seconds -= 1
+            print(self.countdown_seconds)
+            self.root.after(1000, self.update_countdown_label)
 
-    def start_timer(self):
-        self.button.pack_forget()  # Hide the button
-        self.timer_count += 1
-        self.label.config(text=f"Timer {self.timer_count}: Running...")
+        elif self.countdown_seconds < 4 and self.countdown_seconds >= 0:
+            self.countdown_label.config(text=f"Countdown: %.2f seconds"%self.countdown_seconds)
+            self.countdown_seconds -= 0.1
+            print(self.countdown_seconds)
+            self.root.after(100, self.update_countdown_label)
 
-        self.root.after(5000, self.timer_completed)
+        else:
+            self.countdown_seconds = -1
+            self.timer_completed()
+
+    def start_countdown(self):
+        
+        if not self.timer_active:
+            self.button.forget()
+
+        if self.first_click:
+            self.update_countdown_label()
+            self.root.after(10000, self.timer_completed)
+            self.first_click = False
+
+        if not self.first_click and self.timer_active:
+            self.score += 1
+
+            x = random.randint(0, max(10, int(self.root.winfo_width()-self.button.winfo_width()*1.1)))
+            y = random.randint(0, max(10, int(self.root.winfo_height()-self.button.winfo_height()*1.1)))
+            self.button.place(x=x, y=y)
+
+            
 
     def timer_completed(self):
-        self.label.config(text=f"Timer {self.timer_count}: Completed")
-        self.button.pack()  # Show the button again
+        if self.timer_active:
+            self.timer_active = False
+        
+            self.score_label = tk.Label(self.root, text=f"You achieved a score of %s!"%self.score)
+            self.score_label.pack()
 
-        if self.timer_count < 5:
-            self.button.place(x=150, y=150)  # Reposition the button
-        else:
-            self.show_result()
+            self.button.destroy()
 
-    def show_result(self):
-        self.result_text = "All timers completed!"
-        result_label = tk.Label(self.root, text=self.result_text, font=("Arial", 16))
-        result_label.pack(pady=20)
+            button2 = tk.Button(self.root, text="Next", command=self.b1_clicked)
+            button2.pack(pady=20)
 
-        button2 = tk.Button(self.root, text="Next", command=self.b1_clicked)
-        button2.pack(pady=20)
 
     def b1_clicked(self):
         # Close the current window
         self.root.withdraw()
         root = tk.Toplevel(self.root)
         
-
         # Open the prompt window
         prompt_window = MainWindowFour(root,
                                        "Yes",

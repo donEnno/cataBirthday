@@ -1,14 +1,15 @@
 import tkinter as tk
 
 class PopupWindow:
-    def __init__(self, text):
+    def __init__(self, text, geometry="300x200"):
         self.text = text
+        self.geometry = geometry
 
     def run(self):
         # Create a pop-up window to show when the click count reaches 25
         popup_root = tk.Toplevel()
         popup_root.title("Popup Window")
-        popup_root.geometry("300x200")
+        popup_root.geometry(self.geometry)
         
         center_window(popup_root, almost=True)
 
@@ -26,16 +27,15 @@ class ClickCounter:
 
 def left_click_count(event):
     ClickCounter.increment_count()
-    print(ClickCounter.count)
-
+    
     if ClickCounter.count == 25:
         # Open a pop-up window when the click count reaches 25
         popup_window = PopupWindow(text="Awesome! You clicked as many times as you're aged!!")
         popup_window.run()
 
-    if ClickCounter.count == 3:
+    if ClickCounter.count == 32:
         # Open a pop-up window when the click count reaches 25
-        popup_window = PopupWindow(text="You clicked thrice. Happy Birthday!")
+        popup_window = PopupWindow(text="You clicked three times already. Happy Birthday!")
         popup_window.run()
 
 
