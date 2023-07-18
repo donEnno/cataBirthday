@@ -89,6 +89,6 @@ class ReactionWindow:
         
         # Open the prompt window
         prompt_window = MainWindowFour(root,
-                                       "Yes",
-                                       "No",
-                                       "???")
+                                       "Click now for a super neat grande cool f f f fresh surprise",
+                                       "Click.",
+                                       "Ok.")
