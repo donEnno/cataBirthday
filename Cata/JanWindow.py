@@ -1,19 +1,17 @@
 import tkinter as tk
 from tkinter import messagebox
 from Cata.mainWindow5 import MainWindowFive
-from Cata.utils import ClickCounter, Score, center_window, left_click_count
-from Cata.JanWindow import JanWindow
 from Cata.utils import ClickCounter, center_window, left_click_count
 
 
-class MainWindowFour:
+class JanWindow:
     def __init__(self, root, 
                  large_txt, 
                  sub_txt, 
                  button_txt):
         
         self.root = root
-        self.root.geometry("400x150")
+        self.root.geometry("1200x300")
 
         center_window(root)
 
@@ -27,30 +25,33 @@ class MainWindowFour:
         self.root.grid_rowconfigure(2, weight=1)        
 
         # Create the message labelcd
-        self.congrats = tk.Label(self.root, text=large_txt, font=("Arial", 16))
+        self.congrats = tk.Label(self.root, text='Frohe Ostern', font=("Arial", 16))
         self.congrats.grid(row=0, column=0, columnspan=3,  pady=0, padx=0, sticky="nsew")
 
-        self.sub_congrats = tk.Label(self.root, text=sub_txt, font=("Arial", 12))
+        self.sub_congrats = tk.Label(self.root, text='Von JPL dem Unausdribbelbarendribbeldribbler', font=("Arial", 32))
         self.sub_congrats.grid(row=1, column=1)
 
         # Create the buttons
-        self.b1 = tk.Button(self.root, text=button_txt, command=self.button_click)
+        self.b1 = tk.Button(self.root, text='Ok.', command=self.b1_clicked)
         self.b1.grid(row=2, column=1)
+
+        
+        self.b2 = tk.Button(self.root, text='caio', command=self.b1_clicked)
+        self.b2.grid(row=2, column=2)
 
         self.root.bind("<Button-1>", left_click_count)
 
-    def button_click(self):
-        Score.increment_score(19)
-
+    def b1_clicked(self):
         # Close the current window
         self.root.withdraw()
         root = tk.Toplevel(self.root)
         
 
         # Open the prompt window
-        next_window = MainWindowFive(root, 
-                                       "Text1",
-                                       "Text2",
-                                       "Ok.")
-        
-    
+        prompt_window = MainWindowFive(root, 
+                                      "Are you da shook one?",
+                                      "Ok.",
+                                      "Ok?")
+
+    def b2_clicked(self):
+        messagebox.showinfo("Button 2", "Button 2 clicked!")
