@@ -1,17 +1,14 @@
 import tkinter as tk
 from tkinter import messagebox
-from Cata.reactionWindow import ReactionWindow
-from Cata.utils import ClickCounter, center_window, left_click_count
+from windows.mainWindow5 import MainWindowFive
+from windows.utils import ClickCounter, center_window, left_click_count
 
 
-class MainWindowThree:
-    def __init__(self, root, 
-                 large_txt, 
-                 sub_txt, 
-                 button_txt):
+class JanWindow:
+    def __init__(self, root):
         
         self.root = root
-        self.root.geometry("400x150")
+        self.root.geometry("1200x300")
 
         center_window(root)
 
@@ -25,15 +22,15 @@ class MainWindowThree:
         self.root.grid_rowconfigure(2, weight=1)        
 
         # Create the message labelcd
-        self.congrats = tk.Label(self.root, text=large_txt, font=("Arial", 16))
+        self.congrats = tk.Label(self.root, text='Frohe Ostern', font=("Arial", 16))
         self.congrats.grid(row=0, column=0, columnspan=3,  pady=0, padx=0, sticky="nsew")
 
-        self.sub_congrats = tk.Label(self.root, text=sub_txt, font=("Arial", 12))
+        self.sub_congrats = tk.Label(self.root, text='Von JPL dem Unausdribbelbarendribbeldribbler', font=("Arial", 32))
         self.sub_congrats.grid(row=1, column=1)
 
         # Create the buttons
-        self.b1 = tk.Button(self.root, text=button_txt, command=self.button_click)
-        self.b1.grid(row=2, column=1)
+        self.button = tk.Button(self.root, text='Ok.', command=self.button_click)
+        self.button.grid(row=2, column=1)
 
         self.root.bind("<Button-1>", left_click_count)
 
@@ -44,5 +41,8 @@ class MainWindowThree:
         
 
         # Open the prompt window
-        next_window = ReactionWindow(root)
-    
+        next_window = MainWindowFive(root, 
+                                      "Are you da shook one?",
+                                      "Ok.",
+                                      "Ok?")
+        

@@ -75,13 +75,19 @@ def generate_compliment():
     "You are amazing!",
     "You make me smile every day.",
     "You have a heart of gold.",
-    "You are the best thing that ever happened to me.",
-    "You are incredibly talented.",
-    "You light up my life.",
-    "You are beautiful inside and out.",
-    "You always know how to make me feel special.",
-    "You make the world a better place.",
-    "You are my rock and my inspiration."
+    "You light up my world.",
+    "You are a Süßmaus.",
+    "You are beautiful!",
+    "You make me feel special.",
+    "You are my sunshine.",
+    "Not just a pretty face!",
+    "You can achieve anything!",
+    "You deserve it all.",
+    "You are loved <3",
+    "Do you have a name or can I call you mine?",
+    "You are just great.",
+    "You mean the world to me.",
+    "Cute as an apple pie."
     ]
 
     return random.choice(compliments)

@@ -1,7 +1,7 @@
 import random
 import tkinter as tk
 from tkinter import messagebox
-from Cata.utils import center_window, left_click_count
+from windows.utils import center_window, left_click_count
 
 class PromptWindow:
     def __init__(self, root):

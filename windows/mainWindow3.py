@@ -1,10 +1,10 @@
 import tkinter as tk
 from tkinter import messagebox
-from Cata.mainWindow3 import MainWindowThree
-from Cata.utils import ClickCounter, center_window, left_click_count
+from windows.reactionWindow import ReactionWindow
+from windows.utils import ClickCounter, center_window, left_click_count
 
 
-class MainWindowTwo:
+class MainWindowThree:
     def __init__(self, root, 
                  large_txt, 
                  sub_txt, 
@@ -44,8 +44,5 @@ class MainWindowTwo:
         
 
         # Open the prompt window
-        next_window = MainWindowThree(root, 
-                                        "But first I need you to think fast.",
-                                        "The next windows will test your reaction skills.",
-                                        "Ok?")
-
+        next_window = ReactionWindow(root)
+    

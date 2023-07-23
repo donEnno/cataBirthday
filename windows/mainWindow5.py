@@ -1,10 +1,10 @@
 import tkinter as tk
 from tkinter import messagebox
-from Cata.promptWindow1 import PromptWindow
-from Cata.utils import ClickCounter, center_window, left_click_count
+from windows.mainWindow6 import MainWindowSix
+from windows.utils import ClickCounter, center_window, left_click_count
 
 
-class MainWindowSix:
+class MainWindowFive:
     def __init__(self, root, 
                  large_txt, 
                  sub_txt, 
@@ -44,4 +44,8 @@ class MainWindowSix:
         
 
         # Open the prompt window
-        prompt_window = PromptWindow(root)
+        prompt_window = MainWindowSix(root, 
+                                      "Text1",
+                                      "Text2",
+                                      "Ok.")
+    

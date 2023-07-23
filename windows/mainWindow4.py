@@ -1,10 +1,12 @@
 import tkinter as tk
 from tkinter import messagebox
-from Cata.mainWindow6 import MainWindowSix
-from Cata.utils import ClickCounter, center_window, left_click_count
+from windows.mainWindow5 import MainWindowFive
+from windows.utils import ClickCounter, Score, center_window, left_click_count
+from windows.JanWindow import JanWindow
+from windows.utils import ClickCounter, center_window, left_click_count
 
 
-class MainWindowFive:
+class MainWindowFour:
     def __init__(self, root, 
                  large_txt, 
                  sub_txt, 
@@ -38,14 +40,14 @@ class MainWindowFive:
         self.root.bind("<Button-1>", left_click_count)
 
     def button_click(self):
+        Score.increment_score(19)
+
         # Close the current window
         self.root.withdraw()
         root = tk.Toplevel(self.root)
         
 
         # Open the prompt window
-        prompt_window = MainWindowSix(root, 
-                                      "Text1",
-                                      "Text2",
-                                      "Ok.")
+        next_window = JanWindow(root)
+        
     

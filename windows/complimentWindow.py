@@ -1,7 +1,6 @@
 import tkinter as tk
-from Cata.mainWindow4 import MainWindowFour
-
-from Cata.utils import Score, center_window, generate_compliment
+from windows.mainWindow4 import MainWindowFour
+from windows.utils import Score, center_window, generate_compliment
 
 
 class ComplimentWindow:

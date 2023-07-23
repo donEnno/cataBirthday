@@ -1,8 +1,8 @@
 import random
 import tkinter as tk
-from Cata.complimentWindow import ComplimentWindow
-from Cata.mainWindow4 import MainWindowFour
-from Cata.utils import center_window, left_click_count, Score
+from windows.complimentWindow import ComplimentWindow
+from windows.mainWindow4 import MainWindowFour
+from windows.utils import center_window, left_click_count, Score
 
 
 

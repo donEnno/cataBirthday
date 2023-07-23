@@ -1,6 +1,6 @@
 import tkinter as tk
-from Cata.mainWindow import MainWindow
-from Cata.utils import ClickCounter, center_window
+from windows.mainWindow import MainWindow
+from windows.utils import ClickCounter, center_window
 
 def on_left_click(event):
     ClickCounter.increment_count()

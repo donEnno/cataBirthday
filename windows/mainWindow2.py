@@ -1,11 +1,13 @@
 import tkinter as tk
 from tkinter import messagebox
-from Cata.mainWindow2 import MainWindowTwo
-from Cata.promptWindow1 import PromptWindow
-from Cata.utils import ClickCounter, left_click_count
+
+import pygments
+import pygame
+from windows.mainWindow3 import MainWindowThree
+from windows.utils import ClickCounter, center_window, left_click_count
 
 
-class MainWindow:
+class MainWindowTwo:
     def __init__(self, root, 
                  large_txt, 
                  sub_txt, 
@@ -13,6 +15,8 @@ class MainWindow:
         
         self.root = root
         self.root.geometry("400x150")
+
+        center_window(root)
 
         # Configure the message box to span three columns and center the text
         self.root.grid_columnconfigure(0, weight=1)
@@ -31,10 +35,21 @@ class MainWindow:
         self.sub_congrats.grid(row=1, column=1)
 
         # Create the buttons
-        self.b1 = tk.Button(self.root, text=button_txt, command=self.button_click)
-        self.b1.grid(row=2, column=1)
+        self.song_button = tk.Button(self.root, text=button_txt, command=self.play_happy_birthday)
+        self.song_button.grid(row=2, column=1)
 
         self.root.bind("<Button-1>", left_click_count)
+
+    def play_happy_birthday(self):
+        
+        pygame.mixer.init()
+        audio_file = "media/happy-birthday-155461.mp3"  # Replace this with the actual file path
+        pygame.mixer.music.load(audio_file)
+        pygame.mixer.music.play()
+
+        self.next_button = tk.Button(self.root, text="That was so sweet.", command=self.button_click)
+        self.next_button.grid(row=2, column=1)
+
 
     def button_click(self):
         # Close the current window
@@ -43,9 +58,8 @@ class MainWindow:
         
 
         # Open the prompt window
-        next_window = MainWindowTwo(root,
-                                      large_txt="I hope you are in the mood",
-                                      sub_txt="for a quick birthday quizz!",
-                                      button_txt="Hell yeah!")
+        next_window = MainWindowThree(root, 
+                                      "But first I need you to think fast.",
+                                      "The next windows will test your reaction skills.",
+                                      "Ok?")
 
-    
