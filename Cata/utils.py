@@ -1,4 +1,6 @@
 import tkinter as tk
+import random
+
 
 class PopupWindow:
     def __init__(self, text, geometry="300x200"):
@@ -18,12 +20,23 @@ class PopupWindow:
 
         popup_root.mainloop()
 
+
 class ClickCounter:
     count = 0
 
     @classmethod
     def increment_count(cls):
         cls.count += 1
+
+
+class Score:
+    score = 0
+
+    @classmethod
+    def increment_score(cls, inc):
+        cls.score += inc
+        print(cls.score)
+
 
 def left_click_count(event):
     ClickCounter.increment_count()
@@ -54,3 +67,21 @@ def center_window(root, almost=False):
 
     # Set the window's position
     root.geometry(f"+{x}+{y}")
+
+
+def generate_compliment():
+
+    compliments = [
+    "You are amazing!",
+    "You make me smile every day.",
+    "You have a heart of gold.",
+    "You are the best thing that ever happened to me.",
+    "You are incredibly talented.",
+    "You light up my life.",
+    "You are beautiful inside and out.",
+    "You always know how to make me feel special.",
+    "You make the world a better place.",
+    "You are my rock and my inspiration."
+    ]
+
+    return random.choice(compliments)

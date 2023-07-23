@@ -7,7 +7,7 @@ class PromptWindow:
     def __init__(self, root):
         self.root = root
         self.root.title("Prompt Window")
-        self.root.protocol("WM_DELETE_WINDOW", self.button_clicked)
+        self.root.protocol("WM_DELETE_WINDOW", self.button_click)
         
         center_window(root)
 
@@ -20,7 +20,7 @@ class PromptWindow:
         self.submit_button = tk.Button(self.root, text="Submit", command=self.submit_answer)
         self.submit_button.grid(row=1, column=0, columnspan=2, padx=10, pady=10)
 
-        self.close_button = tk.Button(self.root, text="Close", command=self.button_clicked)
+        self.close_button = tk.Button(self.root, text="Close", command=self.button_click)
         self.close_button.grid(row=12, column=0, columnspan=2, padx=10, pady=10)
 
         
@@ -30,7 +30,7 @@ class PromptWindow:
         self.countdown_label = tk.Label(self.root, text="")
         self.countdown_label.grid(row=3, column=0, columnspan=2, padx=10, pady=10)
 
-        self.countdown_seconds = 5
+        self.countdown_seconds = 5.0
 
         self.start_countdown()
 
@@ -41,7 +41,7 @@ class PromptWindow:
     def start_countdown(self):
         if self.countdown_seconds >= 0:
             self.countdown_label.config(text=f"Countdown: {self.countdown_seconds} seconds")
-            self.countdown_seconds -= 1
+            self.countdown_seconds -= 0.01
             self.root.after(1000, self.start_countdown)
         else:
             self.countdown_label.config(text="Countdown: Time's up!")
@@ -50,6 +50,6 @@ class PromptWindow:
         answer = self.question_textbox.get("1.0", tk.END).strip()
         self.answer_label.config(text=f"Answer: {answer}")
 
-    def button_clicked(self):
+    def button_click(self):
         self.root.destroy()
         self.root.quit()  # Terminate the Tkinter event loop

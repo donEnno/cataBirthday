@@ -32,12 +32,12 @@ class MainWindowFive:
         self.sub_congrats.grid(row=1, column=1)
 
         # Create the buttons
-        self.b1 = tk.Button(self.root, text=button_txt, command=self.b1_clicked)
+        self.b1 = tk.Button(self.root, text=button_txt, command=self.button_click)
         self.b1.grid(row=2, column=1)
 
         self.root.bind("<Button-1>", left_click_count)
 
-    def b1_clicked(self):
+    def button_click(self):
         # Close the current window
         self.root.withdraw()
         root = tk.Toplevel(self.root)
@@ -48,8 +48,4 @@ class MainWindowFive:
                                       "Text1",
                                       "Text2",
                                       "Ok.")
-
-    def b2_clicked(self):
-        messagebox.showinfo("Button 2", "Button 2 clicked!")
-
     

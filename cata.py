@@ -4,7 +4,6 @@ from Cata.utils import ClickCounter, center_window
 
 def on_left_click(event):
     ClickCounter.increment_count()
-    print(ClickCounter.count)
 
 
 def main():

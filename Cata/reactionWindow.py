@@ -1,7 +1,8 @@
 import random
 import tkinter as tk
+from Cata.complimentWindow import ComplimentWindow
 from Cata.mainWindow4 import MainWindowFour
-from Cata.utils import left_click_count
+from Cata.utils import center_window, left_click_count, Score
 
 
 
@@ -13,6 +14,8 @@ class ReactionWindow:
 
         self.score = 0
         self.root.geometry("400x300")
+
+        center_window(root)
 
         self.countdown_label = tk.Label(self.root, text="")
         self.countdown_label.pack(pady=10, padx=10)
@@ -30,13 +33,11 @@ class ReactionWindow:
         if self.countdown_seconds >= 4:
             self.countdown_label.config(text=f"Countdown: %s seconds"%int(self.countdown_seconds))
             self.countdown_seconds -= 1
-            print(self.countdown_seconds)
             self.root.after(1000, self.update_countdown_label)
 
         elif self.countdown_seconds < 4 and self.countdown_seconds >= 0:
             self.countdown_label.config(text=f"Countdown: %.2f seconds"%self.countdown_seconds)
             self.countdown_seconds -= 0.1
-            print(self.countdown_seconds)
             self.root.after(100, self.update_countdown_label)
 
         else:
@@ -78,17 +79,16 @@ class ReactionWindow:
 
             self.button.destroy()
 
-            button2 = tk.Button(self.root, text="Next", command=self.b1_clicked)
+            button2 = tk.Button(self.root, text="Next", command=self.button_click)
             button2.pack(pady=20)
 
 
-    def b1_clicked(self):
+    def button_click(self):
+        Score.increment_score(self.score)
+        
         # Close the current window
         self.root.withdraw()
         root = tk.Toplevel(self.root)
         
         # Open the prompt window
-        prompt_window = MainWindowFour(root,
-                                       "Yes",
-                                       "No",
-                                       "???")
+        next_window = ComplimentWindow(root)
