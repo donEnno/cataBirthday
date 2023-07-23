@@ -5,10 +5,7 @@ from Cata.utils import ClickCounter, center_window, left_click_count
 
 
 class JanWindow:
-    def __init__(self, root, 
-                 large_txt, 
-                 sub_txt, 
-                 button_txt):
+    def __init__(self, root):
         
         self.root = root
         self.root.geometry("1200x300")
@@ -32,26 +29,20 @@ class JanWindow:
         self.sub_congrats.grid(row=1, column=1)
 
         # Create the buttons
-        self.b1 = tk.Button(self.root, text='Ok.', command=self.b1_clicked)
-        self.b1.grid(row=2, column=1)
-
-        
-        self.b2 = tk.Button(self.root, text='caio', command=self.b1_clicked)
-        self.b2.grid(row=2, column=2)
+        self.button = tk.Button(self.root, text='Ok.', command=self.button_click)
+        self.button.grid(row=2, column=1)
 
         self.root.bind("<Button-1>", left_click_count)
 
-    def b1_clicked(self):
+    def button_click(self):
         # Close the current window
         self.root.withdraw()
         root = tk.Toplevel(self.root)
         
 
         # Open the prompt window
-        prompt_window = MainWindowFive(root, 
+        next_window = MainWindowFive(root, 
                                       "Are you da shook one?",
                                       "Ok.",
                                       "Ok?")
-
-    def b2_clicked(self):
-        messagebox.showinfo("Button 2", "Button 2 clicked!")
+        

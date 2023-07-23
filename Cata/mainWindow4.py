@@ -48,9 +48,6 @@ class MainWindowFour:
         
 
         # Open the prompt window
-        next_window = MainWindowFive(root, 
-                                       "Text1",
-                                       "Text2",
-                                       "Ok.")
+        next_window = JanWindow(root)
         
     
