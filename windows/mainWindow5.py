@@ -1,7 +1,6 @@
 import tkinter as tk
-from tkinter import messagebox
-from windows.mainWindow6 import MainWindowSix
-from windows.utils import ClickCounter, center_window, left_click_count
+from quiz.questionWindow1 import questionOne
+from windows.utils import center_window
 
 
 class MainWindowFive:
@@ -12,7 +11,8 @@ class MainWindowFive:
         
         self.root = root
         self.root.geometry("400x150")
-
+        self.root.title("It's your birthday")
+        
         center_window(root)
 
         # Configure the message box to span three columns and center the text
@@ -35,8 +35,6 @@ class MainWindowFive:
         self.b1 = tk.Button(self.root, text=button_txt, command=self.button_click)
         self.b1.grid(row=2, column=1)
 
-        self.root.bind("<Button-1>", left_click_count)
-
     def button_click(self):
         # Close the current window
         self.root.withdraw()
@@ -44,8 +42,10 @@ class MainWindowFive:
         
 
         # Open the prompt window
-        prompt_window = MainWindowSix(root, 
-                                      "Text1",
-                                      "Text2",
-                                      "Ok.")
+        next_window = questionOne(root, 
+                                      "What is the power house of the cell?",
+                                      "Biology",
+                                      "Mitochondria",
+                                      "Ribosome",
+                                      "Nucleus")
     

@@ -1,7 +1,6 @@
 import tkinter as tk
-from tkinter import messagebox
-from windows.reactionWindow import ReactionWindow
-from windows.utils import ClickCounter, center_window, left_click_count
+from windows.complimentWindow import ComplimentWindow
+from windows.utils import center_window, left_click_count
 
 
 class MainWindowThree:
@@ -10,9 +9,12 @@ class MainWindowThree:
                  sub_txt, 
                  button_txt):
         
+        self.clicked = False
+        
         self.root = root
         self.root.geometry("400x150")
-
+        self.root.title("It's your birthday")
+        
         center_window(root)
 
         # Configure the message box to span three columns and center the text
@@ -38,11 +40,12 @@ class MainWindowThree:
         self.root.bind("<Button-1>", left_click_count)
 
     def button_click(self):
+        
         # Close the current window
         self.root.withdraw()
         root = tk.Toplevel(self.root)
         
 
         # Open the prompt window
-        next_window = ReactionWindow(root)
+        next_window = ComplimentWindow(root)
     

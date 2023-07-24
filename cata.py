@@ -1,5 +1,7 @@
 import tkinter as tk
+from quiz.questionSummaryWindow import QuestionSummary
 from windows.mainWindow import MainWindow
+from windows.mainWindow5 import MainWindowFive
 from windows.utils import ClickCounter, center_window
 
 def on_left_click(event):
@@ -14,10 +16,10 @@ def main():
     root.title("My Application")
 
     # Create an instance of the MainWindow class
-    main_window = MainWindow(root,
-                             large_txt="Happy Birthday Cata!",
-                             sub_txt="Are you happy it's your special day?",
-                             button_txt="Yes!!")
+    main_window = MainWindow(root, 
+                                  large_txt="Happy Birthday Cata!",
+                                  sub_txt="Are you happy it's your special day?",
+                                  button_txt="Yes!!")
     
     center_window(root)
 

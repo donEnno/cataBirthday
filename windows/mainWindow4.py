@@ -1,9 +1,6 @@
 import tkinter as tk
-from tkinter import messagebox
-from windows.mainWindow5 import MainWindowFive
-from windows.utils import ClickCounter, Score, center_window, left_click_count
-from windows.JanWindow import JanWindow
-from windows.utils import ClickCounter, center_window, left_click_count
+from windows.reactionWindow import ReactionWindow
+from windows.utils import center_window, left_click_count
 
 
 class MainWindowFour:
@@ -14,6 +11,9 @@ class MainWindowFour:
         
         self.root = root
         self.root.geometry("400x150")
+        self.root.title("It's your birthday")
+        
+        self.clicked = False
 
         center_window(root)
 
@@ -26,7 +26,7 @@ class MainWindowFour:
         self.root.grid_rowconfigure(1, weight=1)
         self.root.grid_rowconfigure(2, weight=1)        
 
-        # Create the message labelcd
+        # Create the message label
         self.congrats = tk.Label(self.root, text=large_txt, font=("Arial", 16))
         self.congrats.grid(row=0, column=0, columnspan=3,  pady=0, padx=0, sticky="nsew")
 
@@ -40,14 +40,15 @@ class MainWindowFour:
         self.root.bind("<Button-1>", left_click_count)
 
     def button_click(self):
-        Score.increment_score(19)
-
-        # Close the current window
-        self.root.withdraw()
-        root = tk.Toplevel(self.root)
-        
-
-        # Open the prompt window
-        next_window = JanWindow(root)
+        if self.clicked == True:
+            # Close the current window
+            self.root.withdraw()
+            root = tk.Toplevel(self.root)
+            # Open the prompt window
+            next_window = ReactionWindow(root)
+            
+        else:
+            self.b1.config(text="Not really.")
+            self.clicked = True
         
     

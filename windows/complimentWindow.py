@@ -1,13 +1,13 @@
 import tkinter as tk
 from windows.mainWindow4 import MainWindowFour
-from windows.utils import Score, center_window, generate_compliment
+from windows.utils import center_window, generate_compliment
 
 
 class ComplimentWindow:
     def __init__(self, root):
         self.root = root
-        self.root.title("Compliment Generator")
         self.root.geometry("400x180")
+        self.root.title("It's your birthday")
 
         self.packed = False
         self.n_compliments = 0
@@ -51,6 +51,6 @@ class ComplimentWindow:
         
         # Open the prompt window
         next_window = MainWindowFour(root,
-                                     'Alright',
-                                     'Okay',
-                                     'Mhhhkay')
+                                     'Okay the fun part is over.',
+                                     'Are you ready for some birthday challenges?',
+                                     'Do I have a choice?')

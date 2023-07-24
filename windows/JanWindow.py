@@ -1,7 +1,6 @@
 import tkinter as tk
-from tkinter import messagebox
 from windows.mainWindow5 import MainWindowFive
-from windows.utils import ClickCounter, center_window, left_click_count
+from windows.utils import center_window, left_click_count
 
 
 class JanWindow:
@@ -9,6 +8,7 @@ class JanWindow:
         
         self.root = root
         self.root.geometry("1200x300")
+        self.root.title("It's your birthday")
 
         center_window(root)
 
@@ -42,7 +42,7 @@ class JanWindow:
 
         # Open the prompt window
         next_window = MainWindowFive(root, 
-                                      "Are you da shook one?",
-                                      "Ok.",
-                                      "Ok?")
+                                      "Okay.....",
+                                      "Something unexpected happend there. \n Let's continue with a few quiz questions.",
+                                      "Ok")
         

@@ -1,10 +1,8 @@
 import tkinter as tk
-from tkinter import messagebox
 
-import pygments
 import pygame
 from windows.mainWindow3 import MainWindowThree
-from windows.utils import ClickCounter, center_window, left_click_count
+from windows.utils import center_window, left_click_count
 
 
 class MainWindowTwo:
@@ -15,7 +13,8 @@ class MainWindowTwo:
         
         self.root = root
         self.root.geometry("400x150")
-
+        self.root.title("It's your birthday")
+        
         center_window(root)
 
         # Configure the message box to span three columns and center the text
@@ -52,14 +51,15 @@ class MainWindowTwo:
 
 
     def button_click(self):
+        pygame.mixer.music.stop()
         # Close the current window
         self.root.withdraw()
         root = tk.Toplevel(self.root)
         
 
         # Open the prompt window
-        next_window = MainWindowThree(root, 
-                                      "But first I need you to think fast.",
-                                      "The next windows will test your reaction skills.",
-                                      "Ok?")
+        next_window = MainWindowThree(root,
+                                      "Did anyone tell you already that",
+                                      "you are a special person?",
+                                      "Not yet.")
 

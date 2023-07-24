@@ -1,8 +1,6 @@
 import tkinter as tk
-from tkinter import messagebox
 from windows.mainWindow2 import MainWindowTwo
-from windows.promptWindow1 import PromptWindow
-from windows.utils import ClickCounter, left_click_count
+from windows.utils import left_click_count
 
 
 class MainWindow:
@@ -13,6 +11,7 @@ class MainWindow:
         
         self.root = root
         self.root.geometry("400x150")
+        self.root.title("It's your birthday")
 
         # Configure the message box to span three columns and center the text
         self.root.grid_columnconfigure(0, weight=1)
@@ -44,8 +43,8 @@ class MainWindow:
 
         # Open the prompt window
         next_window = MainWindowTwo(root,
-                                    large_txt="You're turning 25 today.",
-                                    sub_txt="Let's celebrate.",
+                                    large_txt="You are turning 25 today.",
+                                    sub_txt="Let's celebrate!",
                                     button_txt="Hell yeah!")
 
     

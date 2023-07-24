@@ -3,7 +3,7 @@ import random
 
 
 class PopupWindow:
-    def __init__(self, text, geometry="300x200"):
+    def __init__(self, text, geometry="600x200"):
         self.text = text
         self.geometry = geometry
 
@@ -35,22 +35,25 @@ class Score:
     @classmethod
     def increment_score(cls, inc):
         cls.score += inc
-        print(cls.score)
+   
+
+class QuestionScore:
+    score = 0
+
+    @classmethod
+    def increment_score(cls):
+        cls.score += 1
 
 
 def left_click_count(event):
     ClickCounter.increment_count()
     
-    if ClickCounter.count == 25:
+    if ClickCounter.count == 250:
         # Open a pop-up window when the click count reaches 25
         popup_window = PopupWindow(text="Awesome! You clicked as many times as you're aged!!")
         popup_window.run()
 
-    if ClickCounter.count == 32:
-        # Open a pop-up window when the click count reaches 25
-        popup_window = PopupWindow(text="You clicked three times already. Happy Birthday!")
-        popup_window.run()
-
+    
 
 def center_window(root, almost=False):
     # Get the screen width and height
@@ -84,10 +87,9 @@ def generate_compliment():
     "You can achieve anything!",
     "You deserve it all.",
     "You are loved <3",
-    "Do you have a name or can I call you mine?",
     "You are just great.",
     "You mean the world to me.",
-    "Cute as an apple pie."
+    "You're cute as an apple pie."
     ]
 
     return random.choice(compliments)
